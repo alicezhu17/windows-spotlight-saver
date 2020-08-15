@@ -30,7 +30,11 @@ print(numcopied, 'files copied')
 
 
 #set to True to clear files in srcdir
-clearsrcdir = True
+clearsrcdir = False
+numdel = 0
 if clearsrcdir:
-    for file in files:
+    os.chdir(srcdir) #changes the current working directory
+    for file in os.listdir(srcdir):
         os.remove(file) 
+        numdel += 1
+print(numdel, 'files deleted')
